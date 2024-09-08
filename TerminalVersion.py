@@ -5,7 +5,7 @@ To run it download this file, start up cmd, then enter the folder where the game
 Then type "python TerminalVersion.py" and after that "Let's Go Gambling!"
 If you are tired of gambling (shame on you) press ctrl+C'''
 
-import random
+from random import sample
 
 class BJ:
     def __init__(self):
@@ -25,12 +25,8 @@ class BJ:
         That should be it, have fun, fellow Gambler!"
         self.player = []
         self.dealer = []
-        self.deck = ['H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H10', 'H10', 'H10', 'H11', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C10', 'C10', 'C10', 'C11', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S10', 'S10', 'S10', 'S11', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D10', 'D10', 'D10', 'D11']
         self.discard = []
-        self.dealer_in_text = []
-        self.player_in_text = []
-        self.deck_int_text = ['H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'HJ', 'HQ', 'HK', 'HA', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ', 'CQ', 'CK', 'CA', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ', 'SK', 'SA', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'DJ', 'DQ', 'DK', 'DA']
-        self.discard_in_text = []
+        self.deck = ['H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'HJ', 'HQ', 'HK', 'HA', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ', 'CQ', 'CK', 'CA', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ', 'SK', 'SA', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'DJ', 'DQ', 'DK', 'DA']
         # карты игрока | карты диллера | колода | сброс
 
     def LetsGoGambling(self):
@@ -44,7 +40,7 @@ class BJ:
             else:
                 while action != "Stop" or action != "sTOP" or action != "stop":
                     StartRound()
-                    if not self.sog[1]:
+                    if not self.dealer:
                         Blackjack()
                     else:
                         while action != "Stop" or action != "sTOP" or action != "stop":
@@ -55,11 +51,21 @@ class BJ:
                                 ApplyAction(action)
     
     def StartRound(self):
-        PlayerCards = [self.sog[2][random.randrange(len(self.sog))], self.sog[2][random.randrange(len(self.sog) - 1)]]
-        if int(PlayerCards[0]) + int(PlayerCards[1]) == 21:
+        l = sorted(sample(range(len(self.deck)), 2))
+        PlayerCards = [self.deck[l[0]], self.deck[l[1]]]
+        if PlayerCards[0][1:] in '10JKQ' and PlayerCards[1][1:] == 'A' or PlayerCards[1][1:] in '10JKQ' and PlayerCards[0][1:] == 'A':
             return
-        self
-        
+        self.player.append(PlayerCards[0])
+        self.player.append(PlayerCards[1])
+        del self.deck[l[0]]
+        del self.deck[l[1] - 1]
+        l = l = sorted(sample(range(len(self.deck)), 2))
+        self.dealer.append(self.deck[l[0]])
+        self.dealer.append(self.deck[l[1]])
+        del self.dealer[l[0]]
+        del self.dealer[l[1] - 1]
+        yield f"Dealer has {self.dealer[0]} and a closed card\n\
+        The Player has {self.player[0]} and {self.player[1]}"
 
     def ApplyAction(self, action):
 
