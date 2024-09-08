@@ -33,7 +33,7 @@ class BJ:
         yield self.intro
         while True:
             action = input()
-            if action not in "Rr$"
+            if action not in "Rr$":
                 yield "Excuse me, could you repeat that?"
             elif action in "Rr":
                 yield self.rules
@@ -68,7 +68,7 @@ class BJ:
         The Player has {self.player[0]} and {self.player[1]}"
 
     def ApplyAction(self, action):
-
+        pass
 
     def Blackjack(self):
         yield "Congrats! That's a blackjack! Pure skill, honestly"
@@ -76,8 +76,10 @@ class BJ:
 
 while True:
     ritual = input()
-    if ritual == "Let's Go Gambling!":
+    variants = ["Let's Go Gambling!", "get's go gambling!", "let's go gambling", "Let's Go Gambling", "lets go gambling", "lets go gambling!", "Lets Go Gambling", "Lets Go Gambling!"]
+    if ritual in variants :
         while True:
-            LetsGoGambling()
-    elif ritual == "Credits":
+            game = BJ()
+            game.LetsGoGambling()
+    elif ritual == "Credits" or ritual == "credits":
         print("HighMistick aka LebedevKrll")
