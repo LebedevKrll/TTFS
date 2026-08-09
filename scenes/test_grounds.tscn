@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://ctp8ufa1qr3iw"]
+
+[ext_resource type="Script" uid="uid://cawlggbyfd2bj" path="res://maintable.gd" id="1_2wyyj"]
+[ext_resource type="AudioStream" uid="uid://be8bwslq8t2cu" path="res://sounds/hand.wav" id="2_2wyyj"]
+[ext_resource type="Script" uid="uid://b1034216sheiw" path="res://scripts/mouse.gd" id="2_2872o"]
+[ext_resource type="Texture2D" uid="uid://biueuilg1krcf" path="res://sprites/shopkeep_area/shopWares.png" id="2_oc31c"]
+[ext_resource type="AudioStream" uid="uid://dai3a0cwunvdp" path="res://sounds/money.wav" id="3_2872o"]
+[ext_resource type="Texture2D" uid="uid://dcx86noh1gq1j" path="res://sprites/tools/0Dollar.png" id="4_jnbqb"]
+[ext_resource type="AudioStream" uid="uid://dbavt0vxhoyh6" path="res://sounds/gun.wav" id="4_lbht7"]
+[ext_resource type="Script" uid="uid://d4ln35dwqxhmm" path="res://scripts/ware_slot.gd" id="5_1dyep"]
+[ext_resource type="Texture2D" uid="uid://bqw3tqxr3plfl" path="res://sprites/tools/2Dollar.png" id="6_yk6p8"]
+[ext_resource type="Texture2D" uid="uid://co4u1tx2ohl6s" path="res://sprites/tools/3Dollar.png" id="7_ylx3m"]
+[ext_resource type="Texture2D" uid="uid://bd5cxg14nmt5f" path="res://sprites/tools/4Dollar.png" id="8_nuimq"]
+[ext_resource type="Texture2D" uid="uid://bfvergksajp5f" path="res://sprites/tools/gun_table.png" id="8_oc31c"]
+[ext_resource type="Script" uid="uid://rfwjtw58h027" path="res://scripts/ware.gd" id="8_r6x5q"]
+[ext_resource type="Texture2D" uid="uid://cewplx7gwam1i" path="res://sprites/tools/1Dollar.png" id="9_m11fr"]
+[ext_resource type="Resource" uid="uid://dccs4yy0q8l1w" path="res://res(temp)/test_subject.tres" id="9_rok5d"]
+[ext_resource type="Texture2D" uid="uid://5g68y0xcm6po" path="res://sprites/shopkeep_area/shopIdle.png" id="10_1dyep"]
+[ext_resource type="Texture2D" uid="uid://byq27dnx1yyfe" path="res://sprites/backgrounds(temp)/первый шаблон.png" id="10_txehh"]
+[ext_resource type="Texture2D" uid="uid://bcejekt6c3yql" path="res://sprites/backgrounds(temp)/blankBG.png" id="12_m11fr"]
+[ext_resource type="Texture2D" uid="uid://bfhnr0kv7lcl3" path="res://sprites/drinks/barkeep.png" id="12_r6x5q"]
+[ext_resource type="Script" uid="uid://kvdqs66kl217" path="res://scripts/drink_slot.gd" id="13_rok5d"]
+[ext_resource type="Texture2D" uid="uid://dtkmasm1dw0b7" path="res://sprites/misc/xEyX6L.png" id="14_txehh"]
+[ext_resource type="Texture2D" uid="uid://dqut1ndxdjvl1" path="res://sprites/misc/heart_full.png" id="15_r6x5q"]
+[ext_resource type="Texture2D" uid="uid://bu6iwj70p5uyc" path="res://sprites/misc/heart.png" id="16_rok5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4ou2"]
+size = Vector2(101.5, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8pmy"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bvan"]
+size = Vector2(309.5, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm3uh"]
+size = Vector2(94.375, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nqq7"]
+size = Vector2(78, 65)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_w4ou2"]
+points = PackedVector2Array(181.72644, 183.14069, 210.7179, -125.86499, -133.64319, -252.43713, -271.529, -140.00714, -113.84412, 195.86859)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ju1d"]
+size = Vector2(274, 268)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2872o"]
+
+[node name="Main" type="Node2D" unique_id=420858311]
+
+[node name="Table" type="Node2D" parent="." unique_id=188758937]
+script = ExtResource("1_2wyyj")
+shopkeep_open_texture = ExtResource("2_oc31c")
+shopkeep_idle_texture = ExtResource("10_1dyep")
+zeroD = ExtResource("4_jnbqb")
+oneD = ExtResource("9_m11fr")
+twoD = ExtResource("6_yk6p8")
+threeD = ExtResource("7_ylx3m")
+fourplusD = ExtResource("8_nuimq")
+
+[node name="AudioPlayers" type="Node" parent="Table" unique_id=1622616349]
+
+[node name="emptyhand" type="AudioStreamPlayer" parent="Table/AudioPlayers" unique_id=1614226800]
+stream = ExtResource("2_2wyyj")
+
+[node name="money" type="AudioStreamPlayer" parent="Table/AudioPlayers" unique_id=1913599420]
+stream = ExtResource("3_2872o")
+
+[node name="gun" type="AudioStreamPlayer" parent="Table/AudioPlayers" unique_id=1913995236]
+stream = ExtResource("4_lbht7")
+
+[node name="Shop" type="Node2D" parent="Table" unique_id=749593185]
+visible = false
+
+[node name="ShopkeepArea" type="Area2D" parent="Table/Shop" unique_id=61476309]
+
+[node name="ShopkeepSprite" type="Sprite2D" parent="Table/Shop/ShopkeepArea" unique_id=1394506003]
+position = Vector2(960, 540)
+texture = ExtResource("10_1dyep")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/Shop/ShopkeepArea" unique_id=591164853]
+polygon = PackedVector2Array(191, 1083, 402, 165, 823, 251, 939, 1077)
+
+[node name="ASes" type="Area2D" parent="Table/Shop" unique_id=549142165]
+position = Vector2(1343.25, 671)
+script = ExtResource("5_1dyep")
+pool = Array[ExtResource("8_r6x5q")]([ExtResource("9_rok5d")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Shop/ASes" unique_id=136246750]
+shape = SubResource("RectangleShape2D_w4ou2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/Shop/ASes" unique_id=1889436976]
+
+[node name="BuyableConsumable" type="Area2D" parent="Table/Shop" unique_id=1690608280]
+position = Vector2(1082.25, 691.5)
+script = ExtResource("5_1dyep")
+pool = Array[ExtResource("8_r6x5q")]([ExtResource("9_rok5d")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Shop/BuyableConsumable" unique_id=705191327]
+shape = SubResource("RectangleShape2D_r8pmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/Shop/BuyableConsumable" unique_id=1958626084]
+
+[node name="BuyableArtifact" type="Area2D" parent="Table/Shop" unique_id=1591786568]
+position = Vector2(1222.25, 864.5)
+script = ExtResource("5_1dyep")
+pool = Array[ExtResource("8_r6x5q")]([ExtResource("9_rok5d")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Shop/BuyableArtifact" unique_id=164649562]
+shape = SubResource("RectangleShape2D_8bvan")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/Shop/BuyableArtifact" unique_id=2055460198]
+
+[node name="Tools" type="Node2D" parent="Table" unique_id=1916082529]
+visible = false
+
+[node name="GunArea" type="Area2D" parent="Table/Tools" unique_id=677945382]
+position = Vector2(620, 814)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Tools/GunArea" unique_id=577649327]
+rotation = 1.1780972
+shape = SubResource("RectangleShape2D_vm3uh")
+
+[node name="GunSprite" type="Sprite2D" parent="Table/Tools/GunArea" unique_id=1066101972]
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("8_oc31c")
+
+[node name="MoneyArea" type="Area2D" parent="Table/Tools" unique_id=841587924]
+position = Vector2(1220, 822)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Tools/MoneyArea" unique_id=1485199325]
+shape = SubResource("RectangleShape2D_1nqq7")
+
+[node name="MoneySprite" type="Sprite2D" parent="Table/Tools/MoneyArea" unique_id=1605286021]
+texture = ExtResource("4_jnbqb")
+
+[node name="Drinks" type="Node2D" parent="Table" unique_id=3602184]
+
+[node name="BarkeepArea" type="Area2D" parent="Table/Drinks" unique_id=1659823709]
+position = Vector2(960, 540)
+
+[node name="BarkeepSprite" type="Sprite2D" parent="Table/Drinks/BarkeepArea" unique_id=537859348]
+texture = ExtResource("12_r6x5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Drinks/BarkeepArea" unique_id=1088831795]
+position = Vector2(324, -78.99997)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("ConvexPolygonShape2D_w4ou2")
+
+[node name="LDrinkArea" type="Area2D" parent="Table/Drinks" unique_id=971283580]
+position = Vector2(350, 600)
+script = ExtResource("13_rok5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/Drinks/LDrinkArea" unique_id=470346873]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Drinks/LDrinkArea" unique_id=1262916834]
+
+[node name="RDrinkArea" type="Area2D" parent="Table/Drinks" unique_id=862047579]
+position = Vector2(800, 600)
+script = ExtResource("13_rok5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/Drinks/RDrinkArea" unique_id=233145925]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Drinks/RDrinkArea" unique_id=302951694]
+
+[node name="Dealer" type="Node2D" parent="Table" unique_id=1970925610]
+visible = false
+
+[node name="DealerArea" type="Area2D" parent="Table/Dealer" unique_id=1580708899]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Dealer/DealerArea" unique_id=844620771]
+position = Vector2(933, 394)
+shape = SubResource("RectangleShape2D_8ju1d")
+
+[node name="DealerSprite" type="Sprite2D" parent="Table/Dealer/DealerArea" unique_id=88842400]
+
+[node name="Labels_toRemove" type="Control" parent="Table" unique_id=1068918668]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmmoCounter" type="Label" parent="Table/Labels_toRemove" unique_id=199341297]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1736.0
+offset_top = 107.0
+offset_right = 1831.0
+offset_bottom = 138.0
+text = "6"
+
+[node name="HeldItemLabel" type="Label" parent="Table/Labels_toRemove" unique_id=837886242]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1746.0
+offset_top = 52.0
+offset_right = 1806.0
+offset_bottom = 75.0
+text = "nothing"
+label_settings = SubResource("LabelSettings_2872o")
+
+[node name="TempMoney" type="Button" parent="Table" unique_id=1505800611]
+offset_left = 508.0
+offset_top = 212.0
+offset_right = 624.0
+offset_bottom = 275.0
+text = "бабки"
+
+[node name="Backgrounds" type="CanvasLayer" parent="." unique_id=758694473]
+layer = -1
+
+[node name="Table" type="Sprite2D" parent="Backgrounds" unique_id=885587954]
+position = Vector2(959, 539)
+texture = ExtResource("10_txehh")
+
+[node name="Drinks" type="Sprite2D" parent="Backgrounds" unique_id=555497608]
+position = Vector2(960, 540)
+texture = ExtResource("12_m11fr")
+
+[node name="Shop" type="Sprite2D" parent="Backgrounds" unique_id=1517281656]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("12_m11fr")
+
+[node name="CloseUp" type="Sprite2D" parent="Backgrounds" unique_id=2141578781]
+visible = false
+
+[node name="Mouse" type="CharacterBody2D" parent="." unique_id=1036822041]
+script = ExtResource("2_2872o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mouse" unique_id=763752722]
+position = Vector2(8, 12)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("14_txehh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mouse" unique_id=1187787500]
+position = Vector2(8, 13)
+polygon = PackedVector2Array(-12, -12, -12, 16, 12, 5, -8, -17)
+
+[node name="DealerHPBar" type="TextureProgressBar" parent="." unique_id=417088705]
+offset_left = 45.0
+offset_top = 5.0
+offset_right = 176.0
+offset_bottom = 31.0
+max_value = 10.0
+value = 10.0
+fill_mode = 1
+texture_under = ExtResource("15_r6x5q")
+texture_progress = ExtResource("16_rok5d")
