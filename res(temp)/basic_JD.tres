@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Drink" format=3 uid="uid://pno0u50g3bcc"]
+
+[ext_resource type="Script" uid="uid://c0rf2dc28mhmb" path="res://scripts/drink.gd" id="1_xeg2p"]
+[ext_resource type="Texture2D" uid="uid://112ud0dd4v0f" path="res://sprites/drinks/drinktest.png" id="2_lmauu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmauu"]
+size = Vector2(300, 400)
+
+[resource]
+script = ExtResource("1_xeg2p")
+id = &"1"
+display_name = "JD"
+texture = ExtResource("2_lmauu")
+collision_shape = SubResource("RectangleShape2D_lmauu")
+description = "The first drink that comes to everyones mind. At least that's what the dev thinks"
+metadata/_custom_type_script = "uid://c0rf2dc28mhmb"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Ware" format=3 uid="uid://dccs4yy0q8l1w"]
+
+[ext_resource type="Script" uid="uid://rfwjtw58h027" path="res://scripts/ware.gd" id="1_a1lih"]
+[ext_resource type="Texture2D" uid="uid://clgqtut4hnhfy" path="res://sprites/consumables/testsubject.png" id="2_w8yqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6x5q"]
+size = Vector2(100, 100)
+
+[resource]
+script = ExtResource("1_a1lih")
+id = &"1"
+display_name = "Test Subject"
+texture = ExtResource("2_w8yqn")
+collision_shape = SubResource("RectangleShape2D_r6x5q")
+description = "The first of many. A sign of things to come"
+metadata/_custom_type_script = "uid://rfwjtw58h027"
