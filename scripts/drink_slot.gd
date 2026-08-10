@@ -12,12 +12,18 @@ var current_drink: Drink
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 
-func fill_slot() -> void:
+func restock() -> void:
 	current_drink = pool.pick_random()
 	sprite.texture = current_drink.texture
 	collision.shape = current_drink.collision_shape
 	visible = true
 	input_pickable = true
+
+
+func buy(current_money: int) -> bool:
+	if current_money >= current_drink.price:
+		return true
+	return false
 
 @warning_ignore("unused_parameter")
 func _on_input_event(viewport, event, shape_idx) -> void:

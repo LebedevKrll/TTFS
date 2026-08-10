@@ -7,7 +7,7 @@ enum View { TABLE, SHOP, DRINKS }
 
 enum Obj {
 	DEALER = 1, STASH = 2, AMMO = 3, ACH = 4, DECK = 5, LAMP = 6,
-	DRINK1 = 7, DRINK2 = 8, WAITRESS = 9, ARTIFACT = 10,
+	LDRINK = 7, RDRINK = 8, WAITRESS = 9, ARTIFACT = 10,
 	CONSUMABLE = 11, CARDS = 12, SHOPKEEP = 13,
 }
 
@@ -44,6 +44,8 @@ var ammo_max: int = 6
 @onready var shopkeep_sprite = $Shop/ShopkeepArea/ShopkeepSprite
 
 @onready var ware_slots: Array[WareSlot] = [$Shop/BuyableConsumable, $Shop/BuyableArtifact, $Shop/ASes]
+@onready var drink_slots: Array[DrinkSlot] = [$Drinks/LDrinkArea, $Drinks/RDrinkArea]
+
 
 var gun_sprite_base_y: float
 var money_sprite_base_y: float
@@ -78,8 +80,12 @@ func _ready() -> void:
 	for slot in ware_slots:
 		slot.clicked.connect(_on_ware_slot_clicked)
 		slot.restock()
+		
+	for slot in drink_slots:
+		slot.clicked.connect(_on_drink_slot_clicked)
+		slot.restock()
 
-	# TODO: wire these once the corresponding nodes exist
+	# TD: wire these once the corresponding nodes exist
 	# $Dealer/Stash.input_event.connect(...)          -> Obj.STASH
 	# $Table/Ammo...                                  -> Obj.AMMO
 	# $Table/Ach...                                   -> Obj.ACH
@@ -154,6 +160,14 @@ func _on_ware_slot_clicked(ware: Ware, slot: WareSlot) -> void:
 	print("Bought: ", ware.display_name)
 	slot.buy()
 	slot.restock()
+
+func _on_drink_slot_clicked(drink: Drink, slot: DrinkSlot) -> void:
+	if slot.buy(current_money):
+		current_money -= drink.price
+		print("Bought: ", drink.display_name)
+		slot.restock()
+	else:
+		print("Broke")
 
 func toggle_item(item: String) -> void:
 	if held_item == item:

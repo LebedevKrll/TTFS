@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctp8ufa1qr3iw"]
 
-[ext_resource type="Script" uid="uid://cawlggbyfd2bj" path="res://maintable.gd" id="1_2wyyj"]
+[ext_resource type="Script" uid="uid://cawlggbyfd2bj" path="res://scripts/maintable.gd" id="1_2wyyj"]
 [ext_resource type="AudioStream" uid="uid://be8bwslq8t2cu" path="res://sounds/hand.wav" id="2_2wyyj"]
 [ext_resource type="Script" uid="uid://b1034216sheiw" path="res://scripts/mouse.gd" id="2_2872o"]
 [ext_resource type="Texture2D" uid="uid://biueuilg1krcf" path="res://sprites/shopkeep_area/shopWares.png" id="2_oc31c"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://dtkmasm1dw0b7" path="res://sprites/misc/xEyX6L.png" id="14_txehh"]
 [ext_resource type="Texture2D" uid="uid://dqut1ndxdjvl1" path="res://sprites/misc/heart_full.png" id="15_r6x5q"]
 [ext_resource type="Texture2D" uid="uid://bu6iwj70p5uyc" path="res://sprites/misc/heart.png" id="16_rok5d"]
+[ext_resource type="Script" uid="uid://c0rf2dc28mhmb" path="res://scripts/drink.gd" id="18_ylx3m"]
+[ext_resource type="Resource" uid="uid://pno0u50g3bcc" path="res://res(temp)/basic_JD.tres" id="19_nuimq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4ou2"]
 size = Vector2(101.5, 96)
@@ -152,6 +154,7 @@ shape = SubResource("ConvexPolygonShape2D_w4ou2")
 [node name="LDrinkArea" type="Area2D" parent="Table/Drinks" unique_id=971283580]
 position = Vector2(350, 600)
 script = ExtResource("13_rok5d")
+pool = Array[ExtResource("18_ylx3m")]([ExtResource("19_nuimq")])
 
 [node name="Sprite2D" type="Sprite2D" parent="Table/Drinks/LDrinkArea" unique_id=470346873]
 
@@ -160,6 +163,7 @@ script = ExtResource("13_rok5d")
 [node name="RDrinkArea" type="Area2D" parent="Table/Drinks" unique_id=862047579]
 position = Vector2(800, 600)
 script = ExtResource("13_rok5d")
+pool = Array[ExtResource("18_ylx3m")]([ExtResource("19_nuimq")])
 
 [node name="Sprite2D" type="Sprite2D" parent="Table/Drinks/RDrinkArea" unique_id=233145925]
 
