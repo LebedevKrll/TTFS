@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btpeujr7sqlsd"
-path="res://.godot/imported/gun_anim4.png-6e3c24c5e2dde83b22e3951df81247c4.ctex"
+uid="uid://bfhnr0kv7lcl3"
+path="res://.godot/imported/barkeep.png-ecaac71219f1624f88db901ace5842c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_pickup/gun_anim4.png"
-dest_files=["res://.godot/imported/gun_anim4.png-6e3c24c5e2dde83b22e3951df81247c4.ctex"]
+source_file="res://sprites/drinks_area/barkeep.png"
+dest_files=["res://.godot/imported/barkeep.png-ecaac71219f1624f88db901ace5842c0.ctex"]
 
 [params]
 

@@ -12,7 +12,15 @@ var current_drink: Drink
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 
-func fill_slot() -> void:
+func consume() -> void:
+	visible = false
+	input_pickable = false
+
+func buy() -> void:
+	consume()
+	current_drink = null
+
+func restock() -> void:
 	current_drink = pool.pick_random()
 	sprite.texture = current_drink.texture
 	collision.shape = current_drink.collision_shape

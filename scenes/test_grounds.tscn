@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctp8ufa1qr3iw"]
 
-[ext_resource type="Script" path="res://scripts/maintable.gd" id="1_2wyyj"]
+[ext_resource type="Script" uid="uid://dhlhrvairqq8x" path="res://scripts/maintable.gd" id="1_2wyyj"]
 [ext_resource type="AudioStream" uid="uid://be8bwslq8t2cu" path="res://sounds/hand.wav" id="2_2wyyj"]
 [ext_resource type="Script" uid="uid://b1034216sheiw" path="res://scripts/mouse.gd" id="2_2872o"]
 [ext_resource type="Texture2D" uid="uid://biueuilg1krcf" path="res://sprites/shopkeep_area/shopWares.png" id="2_oc31c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcx86noh1gq1j" path="res://sprites/tools/0Dollar.png" id="4_jnbqb"]
 [ext_resource type="AudioStream" uid="uid://dbavt0vxhoyh6" path="res://sounds/gun.wav" id="4_lbht7"]
 [ext_resource type="Script" uid="uid://d4ln35dwqxhmm" path="res://scripts/ware_slot.gd" id="5_1dyep"]
+[ext_resource type="Texture2D" uid="uid://b66ig8p8jvj0u" path="res://sprites/dealer_area/ammoBox_shooted.png" id="5_lrk7p"]
 [ext_resource type="Texture2D" uid="uid://bqw3tqxr3plfl" path="res://sprites/tools/2Dollar.png" id="6_yk6p8"]
 [ext_resource type="Texture2D" uid="uid://co4u1tx2ohl6s" path="res://sprites/tools/3Dollar.png" id="7_ylx3m"]
 [ext_resource type="Texture2D" uid="uid://bd5cxg14nmt5f" path="res://sprites/tools/4Dollar.png" id="8_nuimq"]
@@ -18,13 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://5g68y0xcm6po" path="res://sprites/shopkeep_area/shopIdle.png" id="10_1dyep"]
 [ext_resource type="Texture2D" uid="uid://byq27dnx1yyfe" path="res://sprites/backgrounds(temp)/первый шаблон.png" id="10_txehh"]
 [ext_resource type="Texture2D" uid="uid://bcejekt6c3yql" path="res://sprites/backgrounds(temp)/blankBG.png" id="12_m11fr"]
-[ext_resource type="Texture2D" uid="uid://bfhnr0kv7lcl3" path="res://sprites/drinks/barkeep.png" id="12_r6x5q"]
+[ext_resource type="Texture2D" uid="uid://bfhnr0kv7lcl3" path="res://sprites/drinks_area/barkeep.png" id="12_r6x5q"]
 [ext_resource type="Script" uid="uid://kvdqs66kl217" path="res://scripts/drink_slot.gd" id="13_rok5d"]
 [ext_resource type="Texture2D" uid="uid://dtkmasm1dw0b7" path="res://sprites/misc/xEyX6L.png" id="14_txehh"]
 [ext_resource type="Texture2D" uid="uid://dqut1ndxdjvl1" path="res://sprites/misc/heart_full.png" id="15_r6x5q"]
 [ext_resource type="Texture2D" uid="uid://bu6iwj70p5uyc" path="res://sprites/misc/heart.png" id="16_rok5d"]
 [ext_resource type="Script" uid="uid://c0rf2dc28mhmb" path="res://scripts/drink.gd" id="18_ylx3m"]
 [ext_resource type="Resource" uid="uid://pno0u50g3bcc" path="res://res(temp)/basic_JD.tres" id="19_nuimq"]
+[ext_resource type="Texture2D" uid="uid://di1n20bwiny73" path="res://sprites/dealer_area/ammoBox_closed.png" id="20_nuimq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4ou2"]
 size = Vector2(101.5, 96)
@@ -47,6 +49,9 @@ points = PackedVector2Array(181.72644, 183.14069, 210.7179, -125.86499, -133.643
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ju1d"]
 size = Vector2(274, 268)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmauu"]
+size = Vector2(100, 120)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2872o"]
 
 [node name="Main" type="Node2D" unique_id=420858311]
@@ -55,6 +60,8 @@ size = Vector2(274, 268)
 script = ExtResource("1_2wyyj")
 shopkeep_open_texture = ExtResource("2_oc31c")
 shopkeep_idle_texture = ExtResource("10_1dyep")
+ammo_box_normal_texture = ExtResource("20_nuimq")
+ammo_box_shot_texture = ExtResource("5_lrk7p")
 zeroD = ExtResource("4_jnbqb")
 oneD = ExtResource("9_m11fr")
 twoD = ExtResource("6_yk6p8")
@@ -138,6 +145,7 @@ shape = SubResource("RectangleShape2D_1nqq7")
 texture = ExtResource("4_jnbqb")
 
 [node name="Drinks" type="Node2D" parent="Table" unique_id=3602184]
+visible = false
 
 [node name="BarkeepArea" type="Area2D" parent="Table/Drinks" unique_id=1659823709]
 position = Vector2(960, 540)
@@ -170,7 +178,6 @@ pool = Array[ExtResource("18_ylx3m")]([ExtResource("19_nuimq")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Drinks/RDrinkArea" unique_id=302951694]
 
 [node name="Dealer" type="Node2D" parent="Table" unique_id=1970925610]
-visible = false
 
 [node name="DealerArea" type="Area2D" parent="Table/Dealer" unique_id=1580708899]
 
@@ -179,6 +186,15 @@ position = Vector2(933, 394)
 shape = SubResource("RectangleShape2D_8ju1d")
 
 [node name="DealerSprite" type="Sprite2D" parent="Table/Dealer/DealerArea" unique_id=88842400]
+
+[node name="AmmoBoxArea" type="Area2D" parent="Table/Dealer" unique_id=57600344]
+position = Vector2(685, 565)
+
+[node name="AmmoBoxSprite" type="Sprite2D" parent="Table/Dealer/AmmoBoxArea" unique_id=1455536642]
+texture = ExtResource("20_nuimq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Dealer/AmmoBoxArea" unique_id=2124976928]
+shape = SubResource("RectangleShape2D_lmauu")
 
 [node name="Labels_toRemove" type="Control" parent="Table" unique_id=1068918668]
 layout_mode = 3
@@ -220,6 +236,7 @@ position = Vector2(959, 539)
 texture = ExtResource("10_txehh")
 
 [node name="Drinks" type="Sprite2D" parent="Backgrounds" unique_id=555497608]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("12_m11fr")
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4oard82ye1sa"
-path="res://.godot/imported/gun_anim6.png-5f983d7fcbf8d8308d1fe0cd4b4b87f7.ctex"
+uid="uid://di1n20bwiny73"
+path="res://.godot/imported/ammoBox_closed.png-f9d0f4825b303233b99dff61cbf5623a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_pickup/gun_anim6.png"
-dest_files=["res://.godot/imported/gun_anim6.png-5f983d7fcbf8d8308d1fe0cd4b4b87f7.ctex"]
+source_file="res://sprites/dealer_area/ammoBox_closed.png"
+dest_files=["res://.godot/imported/ammoBox_closed.png-f9d0f4825b303233b99dff61cbf5623a.ctex"]
 
 [params]
 

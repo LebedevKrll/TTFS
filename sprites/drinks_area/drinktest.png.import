@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crjcn8ylgxr8y"
-path="res://.godot/imported/gun_anim3.png-1f724a1e2073c517fb72127d0217d50b.ctex"
+uid="uid://112ud0dd4v0f"
+path="res://.godot/imported/drinktest.png-c7cd4c161184fc5eec868ba3fc40e578.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun_pickup/gun_anim3.png"
-dest_files=["res://.godot/imported/gun_anim3.png-1f724a1e2073c517fb72127d0217d50b.ctex"]
+source_file="res://sprites/drinks_area/drinktest.png"
+dest_files=["res://.godot/imported/drinktest.png-c7cd4c161184fc5eec868ba3fc40e578.ctex"]
 
 [params]
 
